@@ -1,0 +1,55 @@
+.movieLibraryContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center
+}
+
+.loadingSpinner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15%;
+}
+
+.spinner {
+    margin-bottom: 30px;
+}
+
+.movieListContainer {
+    display: flex;
+    flex-direction: row !important;
+    align-items: center; 
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 2% 2%;
+    min-height: 300px;
+}
+
+.movieList {
+    margin:20px;
+    width: 200px;
+    height: fit-content;
+    display: flex !important;
+    flex-direction: row;
+    justify-content: center;
+    border: 1px solid #00000080;
+}
+
+.noResultPlaceholder {
+    align-items: center;
+    margin-top: 20%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 15%;
+}
+
+.errorIcon {
+    margin-bottom: 30px;
+}
+
+.pagination {
+    position: relative;
+    margin-bottom: 2%
+}
