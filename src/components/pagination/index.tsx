@@ -7,16 +7,17 @@ type Props = {
     totalPages: number;
     isLoading: boolean;
     setCurrentPage: (page: number) => void;
+    refetch: () => void;
 };
 
-const Pagination: React.FC<Props> = ({ totalPages, isLoading, currentPage, setCurrentPage }) => {
+const Pagination: React.FC<Props> = ({ totalPages, isLoading, currentPage, setCurrentPage, refetch }) => {
 
     return (
         (totalPages > 1 && !isLoading) && <MuiPagination
             className={styles.pagination}
             data-testid="pagination"
             page={currentPage}
-            onChange={(_e, page) => { setCurrentPage(page); }}
+            onChange={(_e, page) => { setCurrentPage(page); refetch(); }}
             count={totalPages}
             showFirstButton
             showLastButton />

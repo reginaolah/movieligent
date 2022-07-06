@@ -15,10 +15,14 @@ const useSearchResult = (queryString: string, page: number = 1): ReturnType => {
     movies: [],
     totalPages: 0,
   });
+
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const debounce = useDebounce();
 
   const getSearchResult = useCallback(() => {
+    setSearchResult(null);
+    setIsLoading(true);
+
     const axiosInstance = axios.create({
       baseURL,
     });
@@ -39,10 +43,10 @@ const useSearchResult = (queryString: string, page: number = 1): ReturnType => {
           let totalPages = data.total_pages;
           let movies: IMovie[] = [];
 
-          results.forEach((movie) => {
+          results.forEach((movie: IMovie) => {
             movies.push(movie);
           });
-          console.log(movies);
+
           setSearchResult({ totalPages, movies });
           setIsLoading(false);
         })

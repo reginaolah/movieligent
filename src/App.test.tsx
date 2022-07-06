@@ -88,19 +88,19 @@ test('renders search bar', () => {
 });
 
 test('renders empty favorite movies list', () => {
-  render(<FavoriteMovies isOpen={true} setIsOpen={(value: boolean) => { }} favoriteMovies={[]} removeMovie={(movieId: number) => { console.log(movieId); }} />);
+  render(<FavoriteMovies isOpen={true} setIsOpen={() => { }} favoriteMovies={[]} removeMovie={(movieId: number) => { console.log(movieId); }} />);
   const noFavoriteMoviesElement = screen.getByText(localizedStrings.NoFavoriteMovies);
   expect(noFavoriteMoviesElement).toBeInTheDocument();
 });
 
 test('renders movie library component', () => {
-  render(<MovieLibrary favorites={[]} queryString="Red" addMovieToFavorites={(movie: IMovie) => { console.log(movie); }} removeMovieFromFavorites={(movieId: number) => { }} />);
+  render(<MovieLibrary currentPage={1} isLoading={false} movies={mockMovies} favorites={[]} queryString="Red" addMovieToFavorites={(movie: IMovie) => { console.log(movie); }} removeMovieFromFavorites={(movieId: number) => { }} />);
   const movieLibraryElement = screen.getByTestId('movie-lib');
   expect(movieLibraryElement).toBeInTheDocument();
 });
 
 test('renders favorite movies list', () => {
-  render(<FavoriteMovies isOpen={true} setIsOpen={(value: boolean) => { }} favoriteMovies={mockMovies} removeMovie={(movieId: number) => { console.log(movieId); }} />);
+  render(<FavoriteMovies isOpen={true} setIsOpen={() => { }} favoriteMovies={mockMovies} removeMovie={(movieId: number) => { console.log(movieId); }} />);
   const noFavoriteMoviesElement = screen.getByText('Red Notice');
   expect(noFavoriteMoviesElement).toBeInTheDocument();
 });
@@ -112,12 +112,12 @@ test('renders movie card', () => {
 });
 
 test('renders pagination component', () => {
-  render(<Pagination currentPage={1} totalPages={10} isLoading={false} setCurrentPage={(value: number) => { }} />);
+  render(<Pagination refetch={() => { }} currentPage={1} totalPages={10} isLoading={false} setCurrentPage={() => { }} />);
   const paginationElement = screen.getByTestId('pagination');
   expect(paginationElement).toBeInTheDocument();
 });
 
 test('does not render pagination component', () => {
-  render(<Pagination currentPage={1} totalPages={1} isLoading={false} setCurrentPage={(value: number) => { }} />);
+  render(<Pagination refetch={() => { }} currentPage={1} totalPages={1} isLoading={false} setCurrentPage={() => { }} />);
   expect(() => screen.getByTestId('pagination')).toThrow('Unable to find an element');
 });

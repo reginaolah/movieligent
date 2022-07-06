@@ -1,14 +1,16 @@
 import * as React from 'react';
 import { IMovie } from '../../interfaces';
 import { BrokenImage } from '@mui/icons-material';
+import ClearIcon from '@mui/icons-material/Clear';
 import styles from '../../styles/favorite-movie-card.module.scss';
-import { ListItem, ListItemIcon, ListItemText, Tooltip } from '@mui/material';
+import { IconButton, ListItem, ListItemIcon, ListItemText, Tooltip } from '@mui/material';
 
 type Props = {
     movie: IMovie;
+    removeMovie: (movieId: number) => void;
 };
 
-const FavoriteMovieCard: React.FC<Props> = ({ movie }) => {
+const FavoriteMovieCard: React.FC<Props> = ({ movie, removeMovie }) => {
     const [imageError, setImageError] = React.useState<boolean>(false);
 
     return (
@@ -26,6 +28,7 @@ const FavoriteMovieCard: React.FC<Props> = ({ movie }) => {
                 }
             </ListItemIcon>
             <ListItemText className={styles.listItemText} primary={<Tooltip title={movie.title}><div className={styles.movieTitle}>{movie.title}</div></Tooltip>} secondary={movie.vote_average} />
+            <IconButton onClick={() => removeMovie(movie.id)}><ClearIcon /></IconButton>
         </ListItem>
     );
 };
