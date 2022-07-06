@@ -20,7 +20,7 @@ const FavoriteMovies: React.FC<Props> = ({ favoriteMovies, removeMovie, isOpen, 
             onClose={() => setIsOpen(false)}
             onOpen={() => setIsOpen(true)}
             PaperProps={{
-                sx: { width: "60%" },
+                sx: { width: "40%" },
             }}
         >
             <List
@@ -37,7 +37,7 @@ const FavoriteMovies: React.FC<Props> = ({ favoriteMovies, removeMovie, isOpen, 
                 }>
                 {
                     !!favoriteMovies?.length && favoriteMovies?.map((movie, index) => {
-                        return <FavoriteMovieCard key={index} movie={movie} />;
+                        return <FavoriteMovieCard key={index} movie={movie} removeMovie={removeMovie} />;
                     })
                 }
                 {

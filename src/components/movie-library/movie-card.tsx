@@ -13,9 +13,13 @@ type Props = {
   removeMovieFromFavorites: (movieId: number) => void;
 };
 
-const MovieCard: React.FC<Props> = ({ movie, addMovieToFavorites, isFavorite, removeMovieFromFavorites }) => {
+const MovieCard: React.FC<Props> = ({ movie, addMovieToFavorites, isFavorite: isFavoriteMovie, removeMovieFromFavorites }) => {
   const [imageError, setImageError] = React.useState<boolean>(false);
-  const [isFavorit, setIsFavorite] = React.useState<boolean>(isFavorite);
+  const [isFavorit, setIsFavorite] = React.useState<boolean>(isFavoriteMovie);
+
+  const isFavorite = React.useMemo(() => {
+    return isFavoriteMovie;
+  }, [isFavoriteMovie]);
 
   return (
     <ImageListItem key={movie.id} sx={{ minHeight: '300px' }}>
@@ -44,8 +48,8 @@ const MovieCard: React.FC<Props> = ({ movie, addMovieToFavorites, isFavorite, re
               setIsFavorite(!isFavorit);
             }}
           >
-            {!isFavorit && <FavoriteBorderIcon className={styles.favoriteIcon} />}
-            {isFavorit && <FavoriteIcon className={styles.favoriteIcon} />}
+            {!isFavorite && <FavoriteBorderIcon className={styles.favoriteIcon} />}
+            {isFavorite && <FavoriteIcon className={styles.favoriteIcon} />}
           </IconButton>
         }
       />

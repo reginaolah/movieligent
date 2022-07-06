@@ -1,6 +1,5 @@
 #Deployed application is available here: https://reginaolah.github.io/movieligent
 
-
 ## Available Scripts
 
 In the project directory, you can run:
