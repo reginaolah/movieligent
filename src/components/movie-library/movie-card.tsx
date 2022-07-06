@@ -20,7 +20,8 @@ const MovieCard: React.FC<Props> = ({ movie, addMovieToFavorites, isFavorite, re
   return (
     <ImageListItem key={movie.id} sx={{ minHeight: '300px' }}>
       {
-        !imageError && <img
+        !imageError &&
+        <img
           src={`https://image.tmdb.org/t/p/original${movie.poster_path}?w=248&fit=crop&auto=format`}
           alt={movie.title}
           onError={() => setImageError(true)}
