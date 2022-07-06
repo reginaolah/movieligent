@@ -1,0 +1,31 @@
+.listItem {
+    margin-top: 5px;
+}
+
+.listItem:hover{
+    background: #00000030
+}
+
+.listItemImage {
+    height: 80px;
+    width: 60px;
+}
+
+.listItemImagePlaceholder {
+    color: grey;
+    height: 80px !important;
+    width: 60px !important;
+}
+
+.listItemText {
+    margin-left: 20px;
+}
+
+.movieTitle {
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 500px;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    text-align: left;
+}
