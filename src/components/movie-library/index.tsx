@@ -18,7 +18,7 @@ type Props = {
 
 const MovieLibrary: React.FC<Props> = ({ queryString, addMovieToFavorites, removeMovieFromFavorites, favorites }) => {
     const [currentPage, setCurrentPage] = useState<number>(1);
-    const { searchResult, isLoading, refetch } = useSearchResult(queryString, currentPage);
+    const { searchResult, isLoading } = useSearchResult(queryString, currentPage);
 
     const isFavorite = React.useCallback((movie: IMovie): boolean => {
         return favorites?.some(favorite => (favorite.id === movie.id));

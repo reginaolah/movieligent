@@ -20,7 +20,7 @@ const FavoriteMovies: React.FC<Props> = ({ favoriteMovies, removeMovie, isOpen, 
             onClose={() => setIsOpen(false)}
             onOpen={() => setIsOpen(true)}
             PaperProps={{
-                sx: { width: "70%" },
+                sx: { width: "60%" },
             }}
         >
             <List

@@ -35,7 +35,7 @@ const App: React.FC<Props> = () => {
       <HeaderBar isOpen={isOpen} setIsOpen={setIsOpen}>
         <FavoriteMovies isOpen={isOpen} setIsOpen={setIsOpen} favoriteMovies={favoriteMovies} removeMovie={removeMovieFromFavorites} />
       </HeaderBar>
-      <SearchBar setSearchValue={setSearchValue} />
+      <SearchBar setSearchValue={setSearchValue} searchValue={searchValue} />
       <MovieLibrary queryString={searchValue} addMovieToFavorites={addMovieToFavorites} removeMovieFromFavorites={removeMovieFromFavorites} favorites={favoriteMovies} />
     </div>
   );
