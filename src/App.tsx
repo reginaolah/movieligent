@@ -13,6 +13,10 @@ const App: React.FC<Props> = () => {
 	const [currentPage, setCurrentPage] = useState<number>(1);
 	const { searchResult, isLoading, refetch } = useSearchResult(searchValue, currentPage);
 
+	React.useEffect(() => {
+		setCurrentPage(1);
+	}, [searchValue]);
+
 	const addMovieToFavorites = React.useCallback((newMovie: IMovie) => {
 		if (!favoriteMovies.includes(newMovie)) {
 			setFavoriteMovies(((prev) =>
