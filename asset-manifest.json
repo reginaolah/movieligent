@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/movieligent/static/css/main.b1aac209.css",
+    "main.js": "/movieligent/static/js/main.d2dd17a0.js",
+    "index.html": "/movieligent/index.html",
+    "main.b1aac209.css.map": "/movieligent/static/css/main.b1aac209.css.map",
+    "main.d2dd17a0.js.map": "/movieligent/static/js/main.d2dd17a0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b1aac209.css",
+    "static/js/main.d2dd17a0.js"
+  ]
+}
